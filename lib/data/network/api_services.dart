@@ -25,7 +25,7 @@ class ApiServices extends BaseApiServices {
     var jsonData;
     try {
       var response = await http.post(Uri.parse(url),
-          body: jsonEncode(data)
+          body: data
       ).timeout(const Duration(seconds: 10));
       jsonData = jsonResponse(response);
     } on SocketException {
@@ -33,6 +33,7 @@ class ApiServices extends BaseApiServices {
     } on RequestTimeOut {
       throw RequestTimeOut('Request Timeout');
     }
+    print(jsonData);
     return jsonData;
   }
 
@@ -43,7 +44,8 @@ class ApiServices extends BaseApiServices {
         var jsonResponse = jsonDecode(response.body);
         return jsonResponse;
       case 400:
-        throw InvalidUrlException('Invalid Url');
+        var jsonResponse = jsonDecode(response.body);
+        return jsonResponse;
       default:
         throw FetchDataException(
             'Error while Communication ${response.statusCode}');

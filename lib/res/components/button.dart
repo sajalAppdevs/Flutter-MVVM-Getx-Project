@@ -11,8 +11,8 @@ class AppButton extends StatelessWidget {
       required this.text,
       required this.onPress,
       required this.loading});
-  final heigth;
-  final width;
+  final double heigth;
+  final double width;
   final VoidCallback onPress;
   final Color color;
   final String text;
@@ -29,7 +29,7 @@ class AppButton extends StatelessWidget {
           color: color,
           borderRadius: BorderRadius.circular(20),
         ),
-        child: loading ?const Center(child: CircularProgressIndicator()) : Center(child: Text(text,style: Theme.of(context).textTheme.headlineMedium!.copyWith(color: Colors.white)),),
+        child: loading ?const Center(child: CircularProgressIndicator()) : Center(child: Text(text,style: Theme.of(context).textTheme.headlineSmall!.copyWith(color: Colors.white)),),
       ),
     );
   }

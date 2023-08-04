@@ -6,7 +6,10 @@ class Languages extends Translations{
   Map<String, Map<String,String>> get keys =>{
 
     'en_US' : {
-      'email_hint' : "Email Hint"
+      'welcome' : 'Welcome Back',
+      'email_hint' : 'Enter Your Email',
+      'pass_hint' : 'Enter Password',
+      'login' : 'Login'
     },
 
 
